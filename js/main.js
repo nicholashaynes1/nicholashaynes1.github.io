@@ -139,6 +139,6 @@ function backToLandingPage(page)
 {
 	// page.style.color = "#132645";
 	// page.style.opacity = "0";
-	window.location = "/personalsite/index.html";
+	window.location = "/index.html";
 }
 
