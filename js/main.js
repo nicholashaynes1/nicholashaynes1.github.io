@@ -95,7 +95,7 @@ function loadNextPage(me)
 		mainLandingPage.style.backgroundColor = "#a13403";
 		mainLandingPage.style.opacity = "0";
 		
-		window.location = "file:///C:/Users/nick/Documents/WebsiteWorkspace/personalsite/webpages/website_page.html";
+		window.location = "/webpages/website_page.html";
 		
 	}
 	else
@@ -104,7 +104,7 @@ function loadNextPage(me)
 		mainLandingPage.style.backgroundColor = "#296f45";
 		mainLandingPage.style.opacity = "0";
 
-		window.location = "file:///C:/Users/nick/Documents/WebsiteWorkspace/personalsite/webpages/resume_page.html"
+		window.location = "/webpages/resume_page.html"
 	}
 }
 
@@ -139,6 +139,6 @@ function backToLandingPage(page)
 {
 	// page.style.color = "#132645";
 	// page.style.opacity = "0";
-	window.location = "file:///C:/Users/nick/Documents/WebsiteWorkspace/personalsite/index.html";
+	window.location = "/personalsite/index.html";
 }
 
