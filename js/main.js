@@ -1,5 +1,6 @@
 // Selects all the images on the page
 var images = document.getElementsByTagName("img");
+var videos = document.getElementsByTagName("iframe");
 var buttonTable = document.getElementById("buttonTable");
 var buttons = document.getElementsByClassName("button");
 var mainLandingPage = document.getElementById("mainLandingPage");
@@ -16,6 +17,8 @@ for (var i = images.length - 1; i >= 0; i--)
 		// adds attributes to the website preview images
 		images[i].setAttribute("onmouseover","focusIn(this)");
 		images[i].setAttribute("onmouseout", "reFocus(this)");
+		videos[0].setAttribute("onmouseover", "focusIn(this)");
+		videos[0].setAttribute("onmouseout", "reFocus(this)");
 	}
 
 // Optimized loop to grab all the buttons
@@ -39,9 +42,19 @@ function focusIn(me)
 			images[i].style.animation = "outOfFocus 1s 1";
 			// Sets the opacity of the non moused over images
 			images[i].style.opacity = ".5";
+			//Does the same with the videos
+			videos[0].style.animation = "outOfFocus 1s 1";
+			videos[0].style.opacity = ".5";
+
 			//Changes the border on the website image preview to the pine green color
 			me.style.borderColor = "white";
-		} 
+		}
+		if(videos[0] == me)
+		{
+			videos[0].style.opacity = "1";
+			videos[0].style.animation = "reFocus";
+			me.style.borderColor = "#263260";
+		}
 	}
 }
 
@@ -55,8 +68,17 @@ function reFocus(me)
 		this avoids the image being moused over from fading out and in again.*/
 		if(images[i] != me)
 		{
-			images[i].style.animation = "reFocus 1s 1"
+			images[i].style.animation = "reFocus 1s 1";
 			images[i].style.opacity = "1";
+			videos[0].style.animation = "reFocus 1s 1";
+			videos[0].style.opacity = "1";
+			me.style.borderColor = "#263260";
+
+		}
+		if(videos[0] == me)
+		{
+			videos[0].style.animation = "reFocus 1s 1";
+			videos[0].style.opacity = "1";
 			me.style.borderColor = "#263260";
 		}
 	}
@@ -66,7 +88,7 @@ function reFocus(me)
 function loadTransition(me)
 {
 	// Tests the button clicked to see which color to change to
-	if(me.getAttribute("name") == "websitesButton")
+	if(me.getAttribute("name") == "ProjectButton")
 	{
 		buttonTable.style.backgroundColor="#a13403";
 	}
@@ -89,7 +111,7 @@ function loadTransition(me)
 function loadNextPage(me)
 {
 	// Checks to see what page needs to be loaded.
-	if(me.getAttribute("name") == "websitesButton")
+	if(me.getAttribute("name") == "ProjectButton")
 	{
 		// I set the html background to orange and fade everying out to avoid the webpage flashing bug.
 		mainLandingPage.style.backgroundColor = "#a13403";
@@ -104,7 +126,7 @@ function loadNextPage(me)
 		mainLandingPage.style.backgroundColor = "#296f45";
 		mainLandingPage.style.opacity = "0";
 
-		window.location = "/webpages/resume_page.html"
+		window.location = "/webpages/resume_page.html";
 	}
 }
 
@@ -122,13 +144,13 @@ function backToMain(me)
 
 	if(me.getAttribute("name") == "websiteBackBtn")
 	{
-		currentPage = "websitePage"
+		currentPage = "websitePage";
 		websitePage.style.animation = "transitionBack 2s 1";
 		setTimeout(function(){ backToLandingPage(currentPage)}, 1000);
 	}
 	else
 	{
-		currentPage = "resumePage"
+		currentPage = "resumePage";
 		resumePage.style.animation = "transitionBack 2s 1";
 		setTimeout(function(){ backToLandingPage(currentPage)}, 1000);
 	}
@@ -141,4 +163,3 @@ function backToLandingPage(page)
 	// page.style.opacity = "0";
 	window.location = "/index.html";
 }
-
