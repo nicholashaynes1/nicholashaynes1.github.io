@@ -27,7 +27,7 @@ body
 }
 
 /*The button that re-directs to the website page*/
-#websitesButton 
+#ProjectButton 
 {
   text-decoration: none;
   background-color: transparent;
@@ -40,7 +40,7 @@ body
   animation: fade_in_p 6.5s; 
 }
 
-#websitesButton:hover 
+#ProjectButton:hover 
 {
   text-decoration: none;
   border-color: #01796f;
